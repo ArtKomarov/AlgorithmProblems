@@ -15,9 +15,17 @@ class Solution:
                 maxArea = area
 
             if height[left_boundary] > height[right_boundary]:
+                last_height = height[right_boundary]
                 right_boundary -= 1
+                # Skip the lines that will not have bigger area
+                while right_boundary >= 0 and last_height >= height[right_boundary]:
+                    right_boundary -= 1
             elif height[left_boundary] < height[right_boundary]:
+                last_height = height[left_boundary]
                 left_boundary += 1
+                # Skip the lines that will not have bigger area
+                while left_boundary >= 0 and last_height >= height[left_boundary]:
+                    left_boundary += 1
             else:
                 left_boundary += 1
                 right_boundary -= 1
