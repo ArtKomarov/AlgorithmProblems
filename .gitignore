@@ -1,4 +1,7 @@
 *
 !*.cpp
+!*.py
 !.gitignore
 
+temp.py
+maxArea.cpp
